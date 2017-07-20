@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.game-button {
+  background-color: yellow;
+  display: inline;
+  height: 3vw;
+  margin-right: 3vw;
+  width: 3vw;
+}
+
+.cards {
+  height: 200px;
+}
