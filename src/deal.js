@@ -1,6 +1,3 @@
-/* global appstate */
-import React from 'react'
-
 function deal () {
   let cards = ['2s', '2d', '2h', '2c', '3s', '3d', '3h', '3c', '4s', '4d', '4h', '4c',
     '5s', '5d', '5h', '5c', '6s', '6d', '6h', '6c', '7s', '7d', '7h', '7c',

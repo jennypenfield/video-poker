@@ -5,14 +5,53 @@ body {
   text-align: center;
 }
 
-.game-button {
-  background-color: yellow;
-  display: inline;
-  height: 3vw;
-  margin-right: 3vw;
-  width: 3vw;
+.cards {
+  display: inline-block;
+  width: 10vw;
+  margin-left: 2vw;
 }
 
-.cards {
-  height: 200px;
+col {
+  width: 15vw;
+}
+
+.game-button {
+  background-color: yellow;
+  border-radius: 0.5vw;
+  display: inline;
+  height: 5vw;
+  margin-right: 7vw;
+  width: 5vw;
+}
+
+.hold-button-1 {
+  background-color: yellow;
+  border-radius: 0.5vw;
+  display: inline;
+  height: 5vw;
+  margin-left: 13vw;
+  margin-right: 7vw;
+  margin-top: 1vw;
+  width: 5vw;
+}
+
+.jack_img {
+  display: inline-block;
+  width: 14vw;
+}
+
+.pay-table {
+  border: 1px solid black;
+  display: inline-block;
+  width: 66vw;
+}
+
+.pay-table-image-container {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.table-columns {
+  width: 15vw;
 }

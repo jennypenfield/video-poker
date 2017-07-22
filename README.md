@@ -7,4 +7,4 @@ player runs out.
 This project was bootstrapped with [Create React App]
 
 [Jacks or Better]: https://wizardofodds.com/games/video-poker/tables/jacks-or-better/
-[Create React App]: (https://github.com/facebookincubator/create-react-app).
+[Create React App]: https://github.com/facebookincubator/create-react-app
