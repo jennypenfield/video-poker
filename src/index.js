@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import deal from './deal.js'
-import { betOneBtn, dealBtn, helpBtn, holdBtn1, holdBtn2,
-  holdBtn3, holdBtn4, holdBtn5, maxBetBtn } from './Events.js'
+import { BetOneBtn, DealBtn, HelpBtn, HoldBtn1, HoldBtn2,
+  HoldBtn3, HoldBtn4, HoldBtn5, MaxBetBtn } from './Events.js'
 import Hand from './Hand.js'
-import renderPayTable from './renderPayTable.js'
+import PayTable from './PayTable.js'
 
 const INITIAL_STATE = {
   bet: 1,
@@ -21,17 +21,18 @@ function App (state) {
     <div className='app-container'>
       <h1>JACKS OR BETTER</h1>
       <div className='pay-table-image-container'>
-        {renderPayTable()}
-        <img src='images/jack_img.jpeg' className='jack_img' alt='Jack image' />
+        {PayTable()}
+        <img src='images/jack_img.jpeg' className='jack_img' alt='Jack' />
       </div>
       <div className='dealt-hand'>
         {Hand(state.hand)}
       </div>
-      <div>
-        {holdBtn1()}{holdBtn2()}{holdBtn3()}{holdBtn4()}{holdBtn5()}
+      <div className='button-container'>
+        {HoldBtn1()}{HoldBtn2()}{HoldBtn3()}{HoldBtn4()}{HoldBtn5()}
       </div>
-      <div>
-        {helpBtn()}{betOneBtn()}{maxBetBtn()}{dealBtn()}
+      <br />
+      <div className='button-container'>
+        {HelpBtn()}{BetOneBtn()}{MaxBetBtn()}{DealBtn()}
       </div>
       <h6>designed by <a className='link' href='https://github.com/jennypenfield'>
       jenny penfield</a></h6>

@@ -2,13 +2,13 @@ import React from 'react'
 import deal from './deal.js'
 import Help from './Help.js'
 
-function dealBtn () {
+function DealBtn () {
   return (
     <button className='game-button' onClick={deal}>DEAL</button>
   )
 }
 
-function betOneBtn () {
+function BetOneBtn () {
   return (
     <button className='game-button' onClick={betOne}>BET ONE</button>
   )
@@ -18,37 +18,41 @@ function betOne () {
   window.appState.bet += 1
 }
 
-function helpBtn () {
+function HelpBtn () {
   return (
-    <button className='game-button' onClick={Help}>HELP</button>
+    <button className='game-button' onClick={Help}>PAYS HELP</button>
   )
 }
 
-function holdBtn1 () {
+function HoldBtn (idx) {
+
+}
+
+function HoldBtn1 () {
   return (
-    <button className='hold-button-1' id='holdbtn1' onClick={hold}>HOLD</button>
+    <button className='game-button' id='holdbtn1' onClick={hold}>HOLD</button>
   )
 }
 
-function holdBtn2 () {
+function HoldBtn2 () {
   return (
     <button className='game-button' id='holdbtn2' onClick={hold}>HOLD</button>
   )
 }
 
-function holdBtn3 () {
+function HoldBtn3 () {
   return (
     <button className='game-button' id='holdbtn3' onClick={hold}>HOLD</button>
   )
 }
 
-function holdBtn4 () {
+function HoldBtn4 () {
   return (
     <button className='game-button' id='holdbtn4' onClick={hold}>HOLD</button>
   )
 }
 
-function holdBtn5 () {
+function HoldBtn5 () {
   return (
     <button className='game-button' id='holdbtn5' onClick={hold}>HOLD</button>
   )
@@ -58,7 +62,7 @@ function hold () {
 
 }
 
-function maxBetBtn () {
+function MaxBetBtn () {
   return (
     <button className='game-button' onClick={betFive}>MAX BET</button>
   )
@@ -69,14 +73,14 @@ function betFive () {
 }
 
 export {
-  betOneBtn,
-  dealBtn,
-  helpBtn,
+  BetOneBtn,
+  DealBtn,
+  HelpBtn,
   hold,
-  holdBtn1,
-  holdBtn2,
-  holdBtn3,
-  holdBtn4,
-  holdBtn5,
-  maxBetBtn
+  HoldBtn1,
+  HoldBtn2,
+  HoldBtn3,
+  HoldBtn4,
+  HoldBtn5,
+  MaxBetBtn
 }
