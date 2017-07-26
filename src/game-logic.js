@@ -1,6 +1,8 @@
 import { deepCopy, shuffleArray } from './util.js'
 
-const cards = [
+const MAX_BET = 5
+
+const DECK = [
   '2s', '2d', '2h', '2c', '3s', '3d', '3h', '3c', '4s', '4d', '4h', '4c',
   '5s', '5d', '5h', '5c', '6s', '6d', '6h', '6c', '7s', '7d', '7h', '7c',
   '8s', '8d', '8h', '8c', '9s', '9d', '9h', '9c', '10s', '10d', '10h', '10c',
@@ -10,7 +12,7 @@ const cards = [
 
 // returns a freshly shuffled new deck of cards
 function newDeck () {
-  return shuffleArray(deepCopy(cards))
+  return shuffleArray(deepCopy(DECK))
 }
 
 function deal () {
@@ -18,9 +20,9 @@ function deal () {
 
   let hand = []
   for (let i = 0; i < 5; i++) {
-    let cardPick = cards[Math.floor(Math.random() * (52 - i))]
-    cards.splice(cardPick, 1)
-    hand.push(cardPick)
+    // let cardPick = cards[Math.floor(Math.random() * (52 - i))]
+    // cards.splice(cardPick, 1)
+    // hand.push(cardPick)
   }
   return hand
 }
@@ -36,10 +38,10 @@ function draw (heldCards, hand) {
   for (let i = 0; i < 5; i++) {
     origHand.push(hand[i])
   }
-  
+
   // remove cards from the deck from the original hand
   for (let i = 0; i < 5; i++) {
-    cards.splice(origHand[i], 1)
+    // cards.splice(origHand[i], 1)
   }
 
   // on the draw, there are now 47 cards in the deck.
@@ -58,4 +60,4 @@ function draw (heldCards, hand) {
   return secondHand
 }
 
-export {deal, draw}
+export {deal, draw, MAX_BET}

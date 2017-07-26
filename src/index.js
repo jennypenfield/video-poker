@@ -14,7 +14,7 @@ const dummyHand = [
 const INITIAL_STATE = {
   bet: 1,
   credit: 100,
-  mode: 'draw',
+  mode: 'deal',
   hand: deepCopy(dummyHand),
   stateExplorerShowing: (document.location.search.indexOf('stateexplorer') !== -1),
   win: 0

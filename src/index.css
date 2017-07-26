@@ -96,6 +96,7 @@ col {
   height: 3vw;
   margin: 0 4vw;
   width: 1vw;
+  text-transform: uppercase;
 }
 
 .hands-col {

@@ -6,7 +6,7 @@ function StateExplorer (state) {
   return (
     <section id='explorerContainer'>
       <h1>State Explorer</h1>
-      <textarea value={stateJSON} />
+      <textarea value={stateJSON} readOnly />
     </section>
   )
 }
