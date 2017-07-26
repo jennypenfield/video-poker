@@ -1,6 +1,5 @@
 import React from 'react'
-import deal from './deal.js'
-import draw from './draw.js'
+import {draw, deal} from './game-logic.js'
 import Help from './Help.js'
 
 function DealDrawBtn (drawNo, heldCards, hand) {
@@ -9,8 +8,9 @@ function DealDrawBtn (drawNo, heldCards, hand) {
       <button className='game-button' onClick={deal}>DEAL</button>
     )
   } else {
+    let clickFn = draw.bind(null, heldCards, hand)
     return (
-      <button className='game-button' onClick={draw(heldCards, hand)}>DRAW</button>
+      <button className='game-button' onClick={clickFn}>DRAW</button>
     )
   }
 }
@@ -25,9 +25,13 @@ function betOne () {
   window.appState.bet += 1
 }
 
+function clickHelpBtn () {
+  window.appState.isHelpShowing = true
+}
+
 function HelpBtn () {
   return (
-    <button className='game-button' onClick={Help}>HELP</button>
+    <button className='game-button' onClick={clickHelpBtn}>HELP</button>
   )
 }
 
