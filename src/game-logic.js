@@ -52,7 +52,6 @@ function checkWin (hand, mode) {
   }
 
   let strHand = handToString(checkHand)
-  // Update pay table
   if (poker.hasRoyalFlush(strHand)) {
     window.appState.handResult = {winningHand: 'royalFlush', rank: 1}
     return
@@ -85,20 +84,33 @@ function checkWin (hand, mode) {
     window.appState.handResult = {winningHand: 'twoPair', rank: 8}
     return
   }
-  if (poker.hasPair(strHand)) {
-    window.appState.handResult = {winningHand: 'pair', rank: 9}
+  if (hasPair(checkHand)) { // library can only check for any pair--need to check for Js or better.
+    window.appState.handResult = {winningHand: 'jacksOrBetter', rank: 9}
     return
   }
   return
-  // poker.hasPair(strHand)
-  // poker.hasTwoPairs(strHand)
-    // poker.hasThreeOfAKind(strHand)
-    // poker.hasStraight(strHand)
-    // poker.hasFlush(strHand)
-    // poker.hasFullHouse(strHand)
-    // poker.hasFourOfAKind(strHand)
-    // poker.hasStraightFlush(strHand)
-    // poker.hasRoyalFlush(strHand)
+}
+
+function hasPair (hand) {
+  console.log(hand)
+  let cardArray = hand.map(function (card) { return card.substring(0, 1) })
+  // remove card from array if it is not a J or higher
+  for (let i = 0; i < 6; i++) {
+    if (cardArray[i] !== 'J' && cardArray[i] !== 'Q' && cardArray[i] !== 'K' &&
+    cardArray[i] !== 'A') {
+      cardArray.splice(i, 1)
+    }
+  }
+  // alphabetize remaining cards
+  let alphaCards = cardArray.sort()
+  console.log(alphaCards)
+
+  for (let i = 1; i < alphaCards.length; i++) {
+    if (alphaCards[i] === alphaCards[i - 1]) {
+      return true
+    }
+  }
+  return false
 }
 
 export {checkWin, newHand, MAX_BET}
