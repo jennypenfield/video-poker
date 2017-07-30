@@ -1,5 +1,5 @@
 import React from 'react'
-import {MAX_BET} from './game-logic'
+import {checkWin, newHand, MAX_BET} from './game-logic'
 
 function clickHelpBtn () {
   window.appState.isHelpShowing = true
@@ -28,9 +28,8 @@ function BetOneBtn () {
 }
 
 function clickMaxBetBtn () {
-  if (window.appState.mode === 'deal') {
-    window.appState.bet = 5
-  }
+  if (window.appState.mode !== 'deal') return
+  window.appState.bet = 5
 }
 
 function MaxBetBtn () {
@@ -40,11 +39,10 @@ function MaxBetBtn () {
 }
 
 function clickDealBtn () {
-  // TODO:
-  // - creates the hand
-  // - spends the money
-  // - switch to "draw" mode
+  window.appState.credit -= window.appState.bet
+  window.appState.hand = newHand()
   window.appState.mode = 'draw'
+  checkWin(window.appState.hand, window.appState.mode)
 }
 
 function DealBtn () {
@@ -54,13 +52,31 @@ function DealBtn () {
 }
 
 function clickDrawBtn () {
-  // TODO:
-  // - deal out new cards for the ones that were not held
-  // - calculate the resultant hand
-  // - update the pay with the result of the hand
-  // - highlight the winning row in the pay table
-  // - switch to "deal" mode
   window.appState.mode = 'deal'
+  checkWin(window.appState.hand, window.appState.mode)
+  if (window.appState.handResult.rank !== 0) {
+    updateCredit(window.appState.handResult.rank, window.appState.bet)
+  }
+}
+
+function updateCredit (rank, bet) {
+  // get current rank & bet index for lookup in the WIN_CREDITS array
+  let rankIdx = rank - 1
+  let betIdx = bet - 1
+  const WIN_CREDITS = [
+    [250, 500, 750, 1000, 4000], // royal flush
+    [50, 100, 150, 200, 250],    // str flush
+    [25, 50, 75, 100, 125],      // four of a KIND
+    [9, 18, 27, 36, 45],         // full house
+    [6, 12, 18, 24, 30],         // flush
+    [4, 8, 12, 16, 20],          // straight
+    [3, 6, 9, 12, 15],           // three of a kind
+    [2, 4, 6, 8, 10],            // two pair
+    [1, 2, 3, 4, 5]              // one pair
+  ]
+  let winAmt = WIN_CREDITS[rankIdx][betIdx]
+  window.appState.win = winAmt
+  window.appState.credit += winAmt
 }
 
 function DrawBtn () {

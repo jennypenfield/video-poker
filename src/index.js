@@ -4,11 +4,11 @@ import App from './App'
 import {deepCopy} from './util'
 
 const dummyHand = [
-  {card: '2c', isHeld: false},
-  {card: 'As', isHeld: true},
-  {card: '3s', isHeld: false},
-  {card: 'Jd', isHeld: true},
-  {card: '7s', isHeld: false}
+  {card: '2c', isHeld: false, drawCard: '4d'},
+  {card: 'As', isHeld: true, drawCard: '5s'},
+  {card: '3s', isHeld: false, drawCard: 'Ad'},
+  {card: 'Jd', isHeld: true, drawCard: 'Ac'},
+  {card: '7s', isHeld: false, drawCard: 'Ks'}
 ]
 
 const INITIAL_STATE = {
@@ -16,8 +16,9 @@ const INITIAL_STATE = {
   credit: 100,
   mode: 'deal',
   hand: deepCopy(dummyHand),
-  stateExplorerShowing: (document.location.search.indexOf('stateexplorer') !== -1),
-  win: 0
+  handResult: {winningHand: '', rank: 0},
+  win: 0,
+  stateExplorerShowing: (document.location.search.indexOf('stateexplorer') !== -1)
 }
 
 window.appState = deepCopy(INITIAL_STATE)

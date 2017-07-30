@@ -1,12 +1,10 @@
 import React from 'react'
 import ActionBar from './ActionBar'
-import Bet from './Bet'
-import Credit from './Credit'
 import Footer from './Footer'
 import Hand from './Hand'
+import MoneyBar from './MoneyBar'
 import PayTable from './PayTable'
 import StateExplorer from './StateExplorer'
-import Win from './Win'
 
 function App (state) {
   let stateExplorer = null
@@ -17,12 +15,10 @@ function App (state) {
   return (
     <main>
       <section id='appContainer' className='app-container'>
-        {PayTable(state.bet)}
-        {Hand(state.hand)}
-        <div className='win-bet-credit-container'>
-          {Win(state.win)}{Bet(state.bet)}{Credit(state.credit)}
-        </div>
-        {ActionBar(state.mode)}
+        {PayTable(state.bet, state.handResult)}
+        {Hand(state.hand, state.mode)}
+        {MoneyBar(state.win, state.bet, state.credit)}
+        {ActionBar(state.mode, state.hand)}
         {Footer()}
       </section>
       <section id='explorerContainer'>{stateExplorer}</section>

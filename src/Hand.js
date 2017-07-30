@@ -8,7 +8,7 @@ function clickCard (idx) {
   window.appState.hand[idx].isHeld = !isHeld
 }
 
-function Card (idx, card, isHeld) {
+function Card (idx, card, isHeld, drawCard) {
   let heldLabelClass = 'held-label'
   let holdBtnClass = 'hold-btn held'
   if (!isHeld) {
@@ -16,7 +16,14 @@ function Card (idx, card, isHeld) {
     holdBtnClass = 'hold-btn'
   }
 
-  const imgSrc = 'images/' + card + '.png'
+  let cardToDisplay = ''
+  let mode = window.appState.mode
+  if (mode === 'deal' && isHeld) cardToDisplay = card
+  if (mode === 'deal' && !isHeld) cardToDisplay = drawCard
+  if (mode === 'draw') cardToDisplay = card
+
+  let imgSrc = 'images/' + cardToDisplay + '.png'
+
   const clickFn = clickCard.bind(null, idx)
 
   return (
@@ -30,7 +37,7 @@ function Card (idx, card, isHeld) {
 
 function Hand (hand) {
   let cards = hand.map(function (card, idx) {
-    return Card(idx, card.card, card.isHeld)
+    return Card(idx, card.card, card.isHeld, card.drawCard)
   })
 
   return (

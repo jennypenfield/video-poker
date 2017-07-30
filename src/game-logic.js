@@ -1,5 +1,7 @@
 import { deepCopy, shuffleArray } from './util.js'
 
+var poker = require('poker-hands')
+
 const MAX_BET = 5
 
 const DECK = [
@@ -15,49 +17,88 @@ function newDeck () {
   return shuffleArray(deepCopy(DECK))
 }
 
-function deal () {
+// returns a new hand
+function newHand () {
   let deck = newDeck()
 
   let hand = []
   for (let i = 0; i < 5; i++) {
-    // let cardPick = cards[Math.floor(Math.random() * (52 - i))]
-    // cards.splice(cardPick, 1)
-    // hand.push(cardPick)
+    hand.push({card: deck[i], isHeld: false, drawCard: deck[i + 10]})
   }
   return hand
 }
 
-function draw (heldCards, hand) {
-  let numHeldCards = heldCards.reduce(function (held, totalHeld) {
-    return held + totalHeld
-  })
-
-  if (numHeldCards === 0) return
-
-  let origHand = []
-  for (let i = 0; i < 5; i++) {
-    origHand.push(hand[i])
-  }
-
-  // remove cards from the deck from the original hand
-  for (let i = 0; i < 5; i++) {
-    // cards.splice(origHand[i], 1)
-  }
-
-  // on the draw, there are now 47 cards in the deck.
-
-  let secondHand = []
-  for (let i = 0; i < 5; i++) {
-    if (heldCards[i] === 0) {
-      secondHand.push(origHand[i])
-    } else {
-      for (let i = 0; i < (5 - numHeldCards); i++) {
-
-      }
-
-    }
-  }
-  return secondHand
+function handToString (checkHand) {
+  let cards = checkHand.map(function (card) { return card.toUpperCase() })
+  return cards.join(' ')
 }
 
-export {deal, draw, MAX_BET}
+// let testHand = ['2c', 'As', '3s', 'Jd', '7s']
+// console.assert(handToString(testHand) === '2C AS 3S JD 7S')
+
+function checkWin (hand, mode) {
+  let checkHand = []
+  for (let i = 0; i < 5; i++) {
+    if (mode === 'draw') {
+      checkHand.push(hand[i].card)
+    }
+    if (mode === 'deal') {
+      if (hand[i].isHeld) {
+        checkHand.push(hand[i].card)
+      } else {
+        checkHand.push(hand[i].drawCard)
+      }
+    }
+  }
+
+  let strHand = handToString(checkHand)
+  // Update pay table
+  if (poker.hasRoyalFlush(strHand)) {
+    window.appState.handResult = {winningHand: 'royalFlush', rank: 1}
+    return
+  }
+  if (poker.hasStraightFlush(strHand)) {
+    window.appState.handResult = {winningHand: 'straightFlush', rank: 2}
+    return
+  }
+  if (poker.hasFourOfAKind(strHand)) {
+    window.appState.handResult = {winningHand: 'fourOfAKind', rank: 3}
+    return
+  }
+  if (poker.hasFullHouse(strHand)) {
+    window.appState.handResult = {winningHand: 'fullHouse', rank: 4}
+    return
+  }
+  if (poker.hasFlush(strHand)) {
+    window.appState.handResult = {winningHand: 'flush', rank: 5}
+    return
+  }
+  if (poker.hasStraight(strHand)) {
+    window.appState.handResult = {winningHand: 'straight', rank: 6}
+    return
+  }
+  if (poker.hasThreeOfAKind(strHand)) {
+    window.appState.handResult = {winningHand: 'threeOfAKind', rank: 7}
+    return
+  }
+  if (poker.hasTwoPairs(strHand)) {
+    window.appState.handResult = {winningHand: 'twoPair', rank: 8}
+    return
+  }
+  if (poker.hasPair(strHand)) {
+    window.appState.handResult = {winningHand: 'pair', rank: 9}
+    return
+  }
+  return
+  // poker.hasPair(strHand)
+  // poker.hasTwoPairs(strHand)
+    // poker.hasThreeOfAKind(strHand)
+    // poker.hasStraight(strHand)
+    // poker.hasFlush(strHand)
+    // poker.hasFullHouse(strHand)
+    // poker.hasFourOfAKind(strHand)
+    // poker.hasStraightFlush(strHand)
+    // poker.hasRoyalFlush(strHand)
+}
+
+export {checkWin, newHand, MAX_BET}

@@ -47,6 +47,10 @@ main {
   text-align: right;
 }
 
+.active {
+  background-color: red;
+}
+
 .bet-five-col {
   color: yellow;
   flex: 1.5;
@@ -165,7 +169,11 @@ col {
   text-shadow: -2px 0 yellow, 0 2px yellow, 2px 0 yellow, 0 -2px yellow;
 }
 
-.win-bet-credit-container {
+.winning-row {
+  color: white;
+}
+
+.money-bar {
   display: flex;
   margin: 1vw auto;
   width: 60vw;
