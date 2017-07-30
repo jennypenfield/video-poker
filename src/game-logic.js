@@ -7,7 +7,7 @@ const MAX_BET = 5
 const DECK = [
   '2s', '2d', '2h', '2c', '3s', '3d', '3h', '3c', '4s', '4d', '4h', '4c',
   '5s', '5d', '5h', '5c', '6s', '6d', '6h', '6c', '7s', '7d', '7h', '7c',
-  '8s', '8d', '8h', '8c', '9s', '9d', '9h', '9c', '10s', '10d', '10h', '10c',
+  '8s', '8d', '8h', '8c', '9s', '9d', '9h', '9c', 'Ts', 'Td', 'Th', 'Tc',
   'Js', 'Jd', 'Jh', 'Jc', 'Qs', 'Qd', 'Qh', 'Qc', 'Ks', 'Kd', 'Kh', 'Kc',
   'As', 'Ad', 'Ah', 'Ac'
 ]
@@ -33,9 +33,6 @@ function handToString (checkHand) {
   return cards.join(' ')
 }
 
-// let testHand = ['2c', 'As', '3s', 'Jd', '7s']
-// console.assert(handToString(testHand) === '2C AS 3S JD 7S')
-
 function checkWin (hand, mode) {
   let checkHand = []
   for (let i = 0; i < 5; i++) {
@@ -52,6 +49,7 @@ function checkWin (hand, mode) {
   }
 
   let strHand = handToString(checkHand)
+
   if (poker.hasRoyalFlush(strHand)) {
     window.appState.handResult = {winningHand: 'royalFlush', rank: 1}
     return
