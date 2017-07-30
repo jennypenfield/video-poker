@@ -72,12 +72,6 @@ main {
   padding: 1vw;
 }
 
-.card-container {
-  display: inline;
-  margin: 0 auto;
-  margin-top: 2vw;
-}
-
 col {
   width: 15vw;
 }
@@ -181,10 +175,13 @@ col {
 
 .hand-container {
   display: flex;
+  margin: 0 auto 2vw auto;
+  width: 70vw;
 }
 
 .card {
   flex: 1;
+  margin: 0 auto;
 }
 
 .card .held-label {
@@ -203,17 +200,19 @@ col {
 
 .card img {
   display: block;
-  width: 120px;
+  flex: 1;
+  width: 12vw;
   margin: 0 auto;
 }
 
 .card .hold-btn {
   background: white;
-  border-radius: 8px;
+  border-radius: 4px;
   display: block;
   text-align: center;
   margin: 10px auto;
-  padding: 8px 16px;
+  padding: 16px 16px;
+  text-transform: uppercase;
 }
 
 .hold-btn.held {

@@ -92,19 +92,20 @@ function checkWin (hand, mode) {
 }
 
 function hasPair (hand) {
-  console.log(hand)
   let cardArray = hand.map(function (card) { return card.substring(0, 1) })
-  // remove card from array if it is not a J or higher
-  for (let i = 0; i < 6; i++) {
-    if (cardArray[i] !== 'J' && cardArray[i] !== 'Q' && cardArray[i] !== 'K' &&
-    cardArray[i] !== 'A') {
-      cardArray.splice(i, 1)
+  // push J, Q, K, A into new array
+  let highCardsArray = []
+  for (let i = 0; i < 5; i++) {
+    if (cardArray[i] === 'J' || cardArray[i] === 'Q' || cardArray[i] === 'K' ||
+    cardArray[i] === 'A') {
+      highCardsArray.push(cardArray[i])
     }
   }
   // alphabetize remaining cards
-  let alphaCards = cardArray.sort()
-  console.log(alphaCards)
+  let alphaCards = highCardsArray.sort()
+  console.log('alphaCards: ' + alphaCards)
 
+  // compare sorted high cards to see if there is a pair of Js or better
   for (let i = 1; i < alphaCards.length; i++) {
     if (alphaCards[i] === alphaCards[i - 1]) {
       return true
