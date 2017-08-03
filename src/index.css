@@ -163,6 +163,20 @@ col {
   width: 80vw;
 }
 
+.play-five-credits-modal {
+  background-color: #0000cc;
+  color: red;
+  font-family: 'Changa';
+  font-size: 5vw;
+  font-weight: bold;
+  line-height: 4vw;
+  margin: 25vw 30vw 22vw 30vw;
+  position: absolute;
+  text-shadow: -2px 0 yellow, 0 2px yellow, 2px 0 yellow, 0 -2px yellow;
+  text-transform: uppercase;
+  z-index: 200;
+}
+
 .table-columns {
   width: 15vw;
 }
@@ -190,7 +204,7 @@ col {
 
 .hand-container {
   display: flex;
-  margin: 0 auto 2vw auto;
+  margin: 0 15vw 2vw 15vw;
   width: 70vw;
 }
 

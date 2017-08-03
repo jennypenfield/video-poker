@@ -17,6 +17,7 @@ const INITIAL_STATE = {
   mode: 'deal',
   hand: deepCopy(dummyHand),
   handResult: {winningHand: '', rank: 0},
+  isPlayFiveCreditsShowing: true,
   win: 0,
   stateExplorerShowing: (document.location.search.indexOf('stateexplorer') !== -1)
 }

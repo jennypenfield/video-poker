@@ -43,6 +43,7 @@ function clickDealBtn () {
   window.appState.hand = newHand()
   window.appState.mode = 'draw'
   window.appState.handResult = {winningHand: '', rank: 0}
+  window.appState.isPlayFiveCreditsShowing = false
   window.appState.win = 0
   checkWin(window.appState.hand, window.appState.mode)
 }
