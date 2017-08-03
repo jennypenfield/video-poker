@@ -15,7 +15,7 @@ function App (state) {
   return (
     <main>
       <section id='appContainer' className='app-container'>
-        {PayTable(state.bet, state.handResult)}
+        {PayTable(state.bet, state.handResult.winningHand)}
         {Hand(state.hand, state.mode)}
         {MoneyBar(state.win, state.bet, state.credit)}
         {ActionBar(state.mode, state.hand)}

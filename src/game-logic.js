@@ -101,7 +101,6 @@ function hasPair (hand) {
   }
   // alphabetize remaining cards
   let alphaCards = highCardsArray.sort()
-  console.log('alphaCards: ' + alphaCards)
 
   // compare sorted high cards to see if there is a pair of Js or better
   for (let i = 1; i < alphaCards.length; i++) {
