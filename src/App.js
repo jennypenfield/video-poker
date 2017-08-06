@@ -4,7 +4,7 @@ import Footer from './Footer'
 import Hand from './Hand'
 import MoneyBar from './MoneyBar'
 import PayTable from './PayTable'
-import PlayFiveCreditsModal from './PlayFiveCreditsModal'
+import { FeedTwentyModal, HandResultModal } from './Modals'
 import StateExplorer from './StateExplorer'
 
 function App (state) {
@@ -12,20 +12,22 @@ function App (state) {
   if (state.stateExplorerShowing) {
     stateExplorer = StateExplorer(state)
   }
-  let playFiveCreditsModal = null
-  if (state.isPlayFiveCreditsShowing === true) { playFiveCreditsModal = PlayFiveCreditsModal() }
+
+  let feedTwenty = null
+  if (state.credit === 0 && state.mode === 'deal') feedTwenty = FeedTwentyModal()
 
   return (
     <main>
       <section id='appContainer' className='app-container'>
-        {playFiveCreditsModal}
+        {HandResultModal(state.handResult.winningHand, state.mode, state.isGameOverModalShowing)}
+        {feedTwenty}
         {PayTable(state.bet, state.handResult.winningHand)}
         {Hand(state.hand, state.mode)}
         {MoneyBar(state.win, state.bet, state.credit)}
         {ActionBar(state.mode, state.hand)}
         {Footer()}
       </section>
-      {/* <section id='explorerContainer'>{stateExplorer}</section> */}
+      <section id='explorerContainer'>{stateExplorer}</section>
     </main>
   )
 }

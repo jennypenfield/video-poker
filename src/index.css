@@ -120,7 +120,6 @@ col {
   display: inline-block;
   flex: 2;
   margin-top: 1vw;
-  width: 14vw;
 }
 
 .hand-name-col {
@@ -156,25 +155,51 @@ col {
 }
 
 .pay-table-image-container {
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
   width: 80vw;
 }
 
-.play-five-credits-modal {
+.modal-text {
   background-color: #0000cc;
   color: red;
   font-family: 'Changa';
   font-size: 5vw;
   font-weight: bold;
   line-height: 4vw;
-  margin: 25vw 30vw 22vw 30vw;
+  margin-top: 24vw;
+  margin-left: 30.5vw;
   position: absolute;
   text-shadow: -2px 0 yellow, 0 2px yellow, 2px 0 yellow, 0 -2px yellow;
   text-transform: uppercase;
+  width: 39vw;
   z-index: 200;
+}
+
+.feed-twenty-modal {
+  background-color: white;
+  border: 2px green solid;
+  border-radius: 5px;
+  font-size: 2vw;
+  margin: 20vw 30vw 20vw 30vw;
+  position: absolute;
+  width: 40vw;
+  z-index: 200;
+}
+
+.yesNoButton {
+  background-color: yellow;
+  border: 2px red solid;
+  border-radius: 5px;
+  color: red;
+  margin: 1vw;
+  padding: 1vw;
+}
+
+.five-credits {
+  width: 39vw;
+  margin-left: 30.5vw;
 }
 
 .table-columns {

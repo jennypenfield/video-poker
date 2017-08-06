@@ -9,18 +9,18 @@ function PayTable (currentBet, handResult) {
   if (currentBet === 4) { isActive4 = 'active-col' }
   if (currentBet === 5) { isActive5 = 'active-col' }
 
-  // highlights winning-hand column
+  // highlights winning-hand row
   let isActiveRF, isActiveSF, isActive4K, isActiveFH, isActiveF, isActiveS,
     isActive3K, isActive2p, isActiveJoB
-  if (handResult === 'royalFlush') { isActiveRF = 'active-row' }
-  if (handResult === 'straightFlush') { isActiveSF = 'active-row' }
-  if (handResult === 'fourOfAKind') { isActive4K = 'active-row' }
-  if (handResult === 'fullHouse') { isActiveFH = 'active-row' }
-  if (handResult === 'flush') { isActiveF = 'active-row' }
-  if (handResult === 'straight') { isActiveS = 'active-row' }
-  if (handResult === 'threeOfAKind') { isActive3K = 'active-row' }
-  if (handResult === 'twoPair') { isActive2p = 'active-row' }
-  if (handResult === 'jacksOrBetter') { isActiveJoB = 'active-row' }
+  if (handResult === 'Royal Flush') { isActiveRF = 'active-row' }
+  if (handResult === 'Straight Flush') { isActiveSF = 'active-row' }
+  if (handResult === 'Four of a Kind') { isActive4K = 'active-row' }
+  if (handResult === 'Full House') { isActiveFH = 'active-row' }
+  if (handResult === 'Flush') { isActiveF = 'active-row' }
+  if (handResult === 'Straight') { isActiveS = 'active-row' }
+  if (handResult === 'Three of a Kind') { isActive3K = 'active-row' }
+  if (handResult === 'Two Pair') { isActive2p = 'active-row' }
+  if (handResult === 'Jacks or Better') { isActiveJoB = 'active-row' }
 
   return (
     <div className='pay-table-image-container'>

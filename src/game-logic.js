@@ -51,39 +51,39 @@ function checkWin (hand, mode) {
   let strHand = handToString(checkHand)
 
   if (poker.hasRoyalFlush(strHand)) {
-    window.appState.handResult = {winningHand: 'royalFlush', rank: 1}
+    window.appState.handResult = {winningHand: 'Royal Flush', rank: 1}
     return
   }
   if (poker.hasStraightFlush(strHand)) {
-    window.appState.handResult = {winningHand: 'straightFlush', rank: 2}
+    window.appState.handResult = {winningHand: ' Straight Flush', rank: 2}
     return
   }
   if (poker.hasFourOfAKind(strHand)) {
-    window.appState.handResult = {winningHand: 'fourOfAKind', rank: 3}
+    window.appState.handResult = {winningHand: 'Four of a Kind', rank: 3}
     return
   }
   if (poker.hasFullHouse(strHand)) {
-    window.appState.handResult = {winningHand: 'fullHouse', rank: 4}
+    window.appState.handResult = {winningHand: 'Full House', rank: 4}
     return
   }
   if (poker.hasFlush(strHand)) {
-    window.appState.handResult = {winningHand: 'flush', rank: 5}
+    window.appState.handResult = {winningHand: 'Flush', rank: 5}
     return
   }
   if (poker.hasStraight(strHand)) {
-    window.appState.handResult = {winningHand: 'straight', rank: 6}
+    window.appState.handResult = {winningHand: 'Straight', rank: 6}
     return
   }
   if (poker.hasThreeOfAKind(strHand)) {
-    window.appState.handResult = {winningHand: 'threeOfAKind', rank: 7}
+    window.appState.handResult = {winningHand: 'Three of a Kind', rank: 7}
     return
   }
   if (poker.hasTwoPairs(strHand)) {
-    window.appState.handResult = {winningHand: 'twoPair', rank: 8}
+    window.appState.handResult = {winningHand: 'Two Pair', rank: 8}
     return
   }
   if (hasPair(checkHand)) { // library can only check for any pair--need to check for Js or better.
-    window.appState.handResult = {winningHand: 'jacksOrBetter', rank: 9}
+    window.appState.handResult = {winningHand: 'Jacks or Better', rank: 9}
     return
   }
   return

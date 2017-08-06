@@ -13,11 +13,11 @@ const dummyHand = [
 
 const INITIAL_STATE = {
   bet: 1,
-  credit: 100,
+  credit: 0,
   mode: 'deal',
   hand: deepCopy(dummyHand),
   handResult: {winningHand: '', rank: 0},
-  isPlayFiveCreditsShowing: true,
+  isGameOverModalShowing: true,
   win: 0,
   stateExplorerShowing: (document.location.search.indexOf('stateexplorer') !== -1)
 }

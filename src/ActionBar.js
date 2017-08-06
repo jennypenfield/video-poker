@@ -12,13 +12,14 @@ function HelpBtn () {
 }
 
 function clickBetOne () {
-  if (window.appState.mode !== 'deal') return
+  if (window.appState.mode !== 'deal' || window.appState.credit <= 0) return
 
   if (window.appState.bet === MAX_BET) {
     window.appState.bet = 1
   } else {
     window.appState.bet += 1
   }
+  window.appState.isGameOverModalShowing = false
 }
 
 function BetOneBtn () {
@@ -28,8 +29,10 @@ function BetOneBtn () {
 }
 
 function clickMaxBetBtn () {
-  if (window.appState.mode !== 'deal') return
-  window.appState.bet = 5
+  if (window.appState.mode !== 'deal' || window.appState.credit <= 0) return
+  window.appState.isGameOverModalShowing = false
+  if (window.appState.credit < 5) window.appState.bet = window.appState.credit
+  else window.appState.bet = 5
 }
 
 function MaxBetBtn () {
@@ -39,11 +42,11 @@ function MaxBetBtn () {
 }
 
 function clickDealBtn () {
+  if (window.appState.credit <= 0) return
   window.appState.credit -= window.appState.bet
   window.appState.hand = newHand()
   window.appState.mode = 'draw'
   window.appState.handResult = {winningHand: '', rank: 0}
-  window.appState.isPlayFiveCreditsShowing = false
   window.appState.win = 0
   checkWin(window.appState.hand, window.appState.mode)
 }
@@ -56,6 +59,7 @@ function DealBtn () {
 
 function clickDrawBtn () {
   window.appState.mode = 'deal'
+  window.appState.isGameOverModalShowing = true
   checkWin(window.appState.hand, window.appState.mode)
   if (window.appState.handResult.rank !== 0) {
     updateCredit(window.appState.handResult.rank, window.appState.bet)
