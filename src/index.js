@@ -13,7 +13,7 @@ const dummyHand = [
 
 const INITIAL_STATE = {
   bet: 1,
-  credit: 0,
+  credit: 80,
   mode: 'deal',
   hand: deepCopy(dummyHand),
   handResult: {winningHand: '', rank: 0},
