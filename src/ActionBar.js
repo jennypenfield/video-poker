@@ -64,6 +64,7 @@ function clickDrawBtn () {
   if (window.appState.handResult.rank !== 0) {
     updateCredit(window.appState.handResult.rank, window.appState.bet)
   }
+  if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
 }
 
 function updateCredit (rank, bet) {

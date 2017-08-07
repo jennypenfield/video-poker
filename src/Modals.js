@@ -18,6 +18,7 @@ function ClickNo20 () {
 
 function clickYes20 () {
   window.appState.credit = 80
+  window.appState.bet = 1
 }
 
 function HandResultModal (hand, mode, isGameOverModalShowing) {
