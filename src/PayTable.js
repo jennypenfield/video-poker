@@ -92,7 +92,7 @@ function PayTable (currentBet, handResult) {
           <div>5</div>
         </div>
       </div>
-      <img src='images/jack_img.jpeg' className='jack_img' alt='Jack' />
+      <img src='images/jack_img.jpeg' className='jack-img' alt='Jack' />
     </div>
   )
 }

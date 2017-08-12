@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer () {
   return (
-    <h6>designed by <a className='link' href='https://github.com/jennypenfield'>
+    <h6 className='footer-link'>designed by <a className='jp-link' href='https://github.com/jennypenfield'>
     jenny penfield</a></h6>
   )
 }

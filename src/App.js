@@ -27,7 +27,7 @@ function App (state) {
         {ActionBar(state.mode, state.hand)}
         {Footer()}
       </section>
-      <section id='explorerContainer'>{stateExplorer}</section>
+      {/* <section id='explorerContainer'>{stateExplorer}</section> */}
     </main>
   )
 }

@@ -113,7 +113,7 @@ col {
   width: 60vw;
 }
 
-.jack_img {
+.jack-img {
   border-bottom: 3px solid yellow;
   border-right: 3px solid yellow;
   border-top: 3px solid yellow;
@@ -244,7 +244,7 @@ col {
   display: block;
   font-family: 'Press Start 2P';
   font-size: 1.5vw;
-  margin: 20px 0 10px 0;
+  margin: 1vw 0 1vw 0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -260,22 +260,55 @@ col {
   margin: 0 auto;
 }
 
-.card .hold-btn {
+.hold-btn {
   background: white;
   border-radius: 4px;
   display: block;
+  height: 40px;
   text-align: center;
-  margin: 10px auto;
-  padding: 16px 16px;
+  margin: 1vw auto;
   text-transform: uppercase;
+  width: 60px;
 }
 
 .hold-btn.held {
   background: yellow;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .jack-img {
+    max-height: 90px;
+  }
+
+  .game-button {
+    font-size: 8px;
+    height: 4vw;
+    margin-top: 20px;
+  }
+
+  .hold-btn {
+    font-size: 0.4em;
+    height: 4vw;
+    width: 5vw;
+  }
+
+  .footer-link {
     display: none;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .game-button {
+    font-size: 6px;
+    margin-top: 16px;
+  }
+
+  .hold-btn {
+    font-size: 6px;
+    height: 3vw;
+  }
+
+  .jack-img {
+    max-height: 85px;
   }
 }
