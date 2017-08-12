@@ -60,14 +60,14 @@ function DealBtn () {
 
 function clickDrawBtn () {
   window.appState.mode = 'deal'
-  if (window.appState.handResult.rank !== 0) {
-    updateCredit(window.appState.handResult.rank, window.appState.bet)
-  }
   if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
   checkWin(window.appState.hand, window.appState.mode)
   setTimeout(function delayOnHandResult () {
     window.appState.isGameOverModalShowing = true
   }, 1000)
+  if (window.appState.handResult.rank !== 0) {
+    updateCredit(window.appState.handResult.rank, window.appState.bet)
+  }
 }
 
 function updateCredit (rank, bet) {
