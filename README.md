@@ -1,5 +1,6 @@
 This is casino-style [Jacks or Better] video poker. The player will start
-with $20 (80 credits).
+with $20 (80 credits) and has the option to play another $20 when their
+credits run out.
 
 View on [Surge].
 
