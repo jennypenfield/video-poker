@@ -44,11 +44,11 @@ function MaxBetBtn () {
 function clickDealBtn () {
   if (window.appState.credit <= 0) return
   window.appState.credit -= window.appState.bet
-  window.appState.hand = newHand()
   window.appState.mode = 'draw'
   window.appState.handResult = {winningHand: '', rank: 0}
   window.appState.win = 0
   window.appState.isGameOverModalShowing = false
+  window.appState.hand = newHand()
   checkWin(window.appState.hand, window.appState.mode)
 }
 
@@ -60,11 +60,11 @@ function DealBtn () {
 
 function clickDrawBtn () {
   window.appState.mode = 'deal'
-  checkWin(window.appState.hand, window.appState.mode)
   if (window.appState.handResult.rank !== 0) {
     updateCredit(window.appState.handResult.rank, window.appState.bet)
   }
   if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
+  checkWin(window.appState.hand, window.appState.mode)
   setTimeout(function delayOnHandResult () {
     window.appState.isGameOverModalShowing = true
   }, 1000)
