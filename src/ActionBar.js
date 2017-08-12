@@ -48,6 +48,7 @@ function clickDealBtn () {
   window.appState.mode = 'draw'
   window.appState.handResult = {winningHand: '', rank: 0}
   window.appState.win = 0
+  window.appState.isGameOverModalShowing = false
   checkWin(window.appState.hand, window.appState.mode)
 }
 
@@ -64,9 +65,9 @@ function clickDrawBtn () {
     updateCredit(window.appState.handResult.rank, window.appState.bet)
   }
   if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
-  setTimeout(function () {
+  setTimeout(function delayOnHandResult () {
     window.appState.isGameOverModalShowing = true
-  }, 500)
+  }, 1000)
 }
 
 function updateCredit (rank, bet) {
