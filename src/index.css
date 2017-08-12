@@ -120,6 +120,7 @@ col {
   display: inline-block;
   flex: 2;
   margin-top: 1vw;
+  max-width: 20vw;
 }
 
 .hand-name-col {
@@ -271,4 +272,10 @@ col {
 
 .hold-btn.held {
   background: yellow;
+}
+
+@media screen and (max-width: 600px) {
+  .jack-img {
+    display: none;
+  }
 }

@@ -3,7 +3,7 @@ with $20 (80 credits).
 
 View on [Surge].
 
-<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
+<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
 
 This project was bootstrapped with [Create React App]
 

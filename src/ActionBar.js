@@ -59,12 +59,14 @@ function DealBtn () {
 
 function clickDrawBtn () {
   window.appState.mode = 'deal'
-  window.appState.isGameOverModalShowing = true
   checkWin(window.appState.hand, window.appState.mode)
   if (window.appState.handResult.rank !== 0) {
     updateCredit(window.appState.handResult.rank, window.appState.bet)
   }
   if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
+  setTimeout(function () {
+    window.appState.isGameOverModalShowing = true
+  }, 500)
 }
 
 function updateCredit (rank, bet) {
