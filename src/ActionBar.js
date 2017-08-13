@@ -2,7 +2,7 @@ import React from 'react'
 import {checkWin, newHand, MAX_BET} from './game-logic'
 
 function clickHelpBtn () {
-  window.appState.isHelpShowing = true
+  window.appState.isHelpModalShowing = true
 }
 
 function HelpBtn () {

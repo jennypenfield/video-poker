@@ -18,9 +18,9 @@ const INITIAL_STATE = {
   hand: deepCopy(dummyHand),
   handResult: {winningHand: '', rank: 0},
   isGameOverModalShowing: true,
-  isHelpShowing: false,
+  isHelpModalShowing: false,
   win: 0,
-  stateExplorerShowing: (document.location.search.indexOf('stateexplorer') === -1)
+  stateExplorerShowing: (document.location.search.indexOf('stateexplorer') !== -1)
 }
 
 window.appState = deepCopy(INITIAL_STATE)

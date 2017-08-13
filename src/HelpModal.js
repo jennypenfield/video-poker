@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Help () {
+function HelpModal () {
   return (
     <div className='help-modal'>
       <h2>HOW TO PLAY JACKS OR BETTER</h2>
@@ -32,8 +32,13 @@ function Help () {
         the cards, press the 'DRAW' button to draw new cards. When the hand is over,
         start another hand by placing your bet and pressing the 'DEAL' button.
       </p>
+      <button className='close-btn' onClick={closeHelp}>Close</button>
     </div>
   )
 }
 
-export default Help
+function closeHelp () {
+  window.appState.isHelpModalShowing = false
+}
+
+export default HelpModal

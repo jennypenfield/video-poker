@@ -102,9 +102,21 @@ col {
   border: 2px yellow solid;
   border-radius: 1vw;
   color: white;
-  height: 50vw;
-  margin: 0 auto;
+  margin: 10px 10vw;
+  padding: 10px;
+  position: absolute;
+  overflow: scroll;
   width: 80vw;
+  z-index: 20;
+}
+
+.help-modal li {
+  list-style-type: none;
+}
+
+.close-btn {
+  background-color: white;
+  color: black;
 }
 
 .hold-labels-container {
@@ -175,7 +187,7 @@ col {
   text-shadow: -2px 0 yellow, 0 2px yellow, 2px 0 yellow, 0 -2px yellow;
   text-transform: uppercase;
   width: 39vw;
-  z-index: 200;
+  z-index: 10;
 }
 
 .feed-twenty-modal {
@@ -286,6 +298,10 @@ col {
     margin-top: 6px;
   }
 
+  .help-modal {
+    font-size: 8px;
+  }
+
   .hold-btn {
     font-size: 0.4em;
     height: 4vw;
@@ -304,13 +320,13 @@ col {
   .game-button {
     font-size: 6px;
     height: 20px;
-    margin-top: 8px;
+    margin-top: -10px;
   }
 
   .card img {
     display: block;
     flex: 1;
-    width: 16vw;
+    width: 14vw;
     margin: 0 auto;
   }
 
@@ -320,6 +336,10 @@ col {
     width: 90vw;
   }
 
+  .help-modal {
+    font-size: 7px;
+  }
+
   .hold-btn {
     font-size: 6px;
     height: 20px;
@@ -327,7 +347,7 @@ col {
   }
 
   .jack-img {
-    max-height: 85px;
+    max-height: 90px;
   }
 
   .modal-text {
@@ -352,15 +372,15 @@ col {
 
   .hand-name-col {
     border-right: 1px yellow solid;
-    font-size: 2.0vw;
+    font-size: 1.6vw;
   }
 
   .bet-col {
     border-right: 1px yellow solid;
-    font-size: 2.0vw;
+    font-size: 1.6vw;
   }
   .bet-five-col {
-    font-size: 2.0vw;
+    font-size: 1.6vw;
   }
 
 
