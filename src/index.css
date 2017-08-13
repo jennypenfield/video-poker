@@ -105,7 +105,7 @@ col {
   margin: 10px 10vw;
   padding: 10px;
   position: absolute;
-  overflow: scroll;
+  overflow: none;
   width: 80vw;
   z-index: 20;
 }
@@ -287,6 +287,92 @@ col {
   background: yellow;
 }
 
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .hand-name-col {
+    font-size: 1.6vw;
+  }
+
+  .bet-col {
+    font-size: 1.6vw;
+  }
+
+  .bet-five-col {
+    font-size: 1.6vw;
+  }
+
+  .modal-text {
+    margin-top: 30vw;
+  }
+}
+
+/* iPad Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+and (orientation: portrait) {
+  .hand-name-col {
+    font-size: 2.2vw;
+  }
+
+  .bet-col {
+    font-size: 2.2vw;
+  }
+
+  .bet-five-col {
+    font-size: 2.2vw;
+  }
+
+  .jack-img {
+    max-height: 25vw;
+  }
+
+  .pay-table-image-container {
+    width: 90vw;
+  }
+
+  .hand-container {
+    display: flex;
+    margin: 0 5vw 2vw 5vw;
+    width: 90vw;
+  }
+
+  .card img {
+    width: 16vw;
+  }
+
+  .modal-text {
+    font-size: 50px;
+    margin-top: 40vw;
+    margin-left: 25vw;
+    width: 50vw;
+  }
+
+  .money-bar {
+    width: 80vw;
+    margin: 0 10vw;
+  }
+
+  .win {
+    font-size: 40px;
+  }
+
+  .bet-amount {
+    font-size: 30px;
+  }
+
+  .credit {
+    font-size: 40px;
+  }
+
+  .button-container {
+    width: 80vw;
+    margin-left: 10vw;
+  }
+
+  .game-button {
+    height: 50px;
+    width: 90px;
+  }
+}
 @media screen and (max-width: 750px) {
   .jack-img {
     max-height: 90px;
@@ -387,7 +473,7 @@ col {
 
 }
 
-@media screen and (max-width: 413px) {
+@media screen and (max-width: 414px) {
   .card img {
     display: block;
     flex: 1;
@@ -413,7 +499,7 @@ col {
 
   .jack-img {
     border: 1px yellow solid;
-    max-height: 70px;
+    max-height: 90px;
   }
 
   .hand-name-col {
