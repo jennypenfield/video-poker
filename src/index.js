@@ -32,8 +32,28 @@ window.appState = deepCopy(INITIAL_STATE)
 const rootEl = document.getElementById('root')
 
 function renderNow () {
+  saveState()
   ReactDOM.render(App(window.appState), rootEl)
   window.requestAnimationFrame(renderNow)
 }
 
+getSavedState()
+
 window.requestAnimationFrame(renderNow)
+
+function saveState () {
+  window.localStorage.state = JSON.stringify(window.appState)
+}
+
+function getSavedState () {
+  let local = window.localStorage.state
+  window.appState = safelyParseJSON(local)
+}
+
+function safelyParseJSON (local) {
+  try {
+    return JSON.parse(local)
+  } catch (e) {
+    return window.appState
+  }
+}

@@ -468,9 +468,6 @@ and (orientation: portrait) {
   .bet-five-col {
     font-size: 1.6vw;
   }
-
-
-
 }
 
 @media screen and (max-width: 414px) {
