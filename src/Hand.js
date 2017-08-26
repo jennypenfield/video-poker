@@ -35,7 +35,7 @@ function Card (idx, card, isHeld, drawCard) {
   return (
     <div className='card' key={idx}>
       <label className={heldLabelClass}>Held</label>
-      <img src={imgSrc} alt={imgSrc} style={{display: 'block'}} onClick={clickFn} />
+      <img src={imgSrc} alt={imgSrc} onClick={clickFn} />
       <button className={holdBtnClass} onClick={clickFn}>Hold</button>
     </div>
   )

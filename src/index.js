@@ -4,11 +4,11 @@ import App from './App'
 import {deepCopy} from './util'
 
 const dummyHand = [
-  {card: '2c', isHeld: false, drawCard: '4d'},
+  {card: '2c', isHeld: true, drawCard: '4d'},
   {card: 'As', isHeld: true, drawCard: '5s'},
   {card: '3s', isHeld: false, drawCard: '7d'},
   {card: 'Jd', isHeld: true, drawCard: 'Ac'},
-  {card: '7s', isHeld: false, drawCard: 'Ks'}
+  {card: '7s', isHeld: true, drawCard: 'Ks'}
 ]
 
 const INITIAL_STATE = {

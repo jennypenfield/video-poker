@@ -1,13 +1,22 @@
-This is casino-style [Jacks or Better] video poker. The player will start
+This is casino-style [Jacks or Better] video poker, built using React. The player will start
 with $20 (80 credits) and has the option to play another $20 when their
 credits run out.
 
-View on [Surge].
+You can bet from one to five credits (max). Playing the max credits will pay out the most on the Royal Flush, as shown in the pay table.
+
+Hit the 'Deal' button to deal a newly shuffled hand. Hold the cards you want by using the 'Hold' buttons below the cards, or simply touching or clicking directly on the card. Then hit the 'Draw' button to draw the cards you want to replace in your hand.
+
+This app utilizes the [poker-hands library], which contains the logic for determining hand status. This library only checks for any pair, but this game should only have a winning hand with a pair of Jacks or better, so I added a function to check for Jacks or better.
+
+![Royal Flush Image](public/images/RoyalFlushImg.png)
+
+Play now on [Surge]. Have fun! :)
 
 <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
 
 This project was bootstrapped with [Create React App]
 
 [Jacks or Better]: https://wizardofodds.com/games/video-poker/tables/jacks-or-better/
+[poker-hands library]: https://www.npmjs.com/package/poker-hands
 [Surge]: http://jacks-or-better.surge.sh/
 [Create React App]: https://github.com/facebookincubator/create-react-app

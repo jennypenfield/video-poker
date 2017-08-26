@@ -267,7 +267,7 @@ col {
 }
 
 .card img {
-  display: block !important;
+  display: block;
   flex: 1;
   width: 12vw;
   margin: 0 auto;
