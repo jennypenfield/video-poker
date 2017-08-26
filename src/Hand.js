@@ -24,12 +24,18 @@ function Card (idx, card, isHeld, drawCard) {
 
   let imgSrc = 'images/' + cardToDisplay + '.png'
 
+  // 'Ad' (Ace of Diamonds) has a conflict with google adblocker extension, which
+  // does not allow display this card, so changed the imgSrc name
+  if (cardToDisplay === 'Ad') {
+    imgSrc = 'images/AceDiamonds.png'
+  }
+
   const clickFn = clickCard.bind(null, idx)
 
   return (
     <div className='card' key={idx}>
       <label className={heldLabelClass}>Held</label>
-      <img src={imgSrc} alt={card} onClick={clickFn} />
+      <img src={imgSrc} alt={imgSrc} style={{display: 'block'}} onClick={clickFn} />
       <button className={holdBtnClass} onClick={clickFn}>Hold</button>
     </div>
   )

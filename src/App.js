@@ -9,10 +9,10 @@ import { FeedTwentyModal, HandResultModal } from './Modals'
 import StateExplorer from './StateExplorer'
 
 function App (state) {
-  // let stateExplorer = null
-  // if (state.stateExplorerShowing) {
-  //   stateExplorer = StateExplorer(state)
-  // }
+  let stateExplorer = null
+  if (state.stateExplorerShowing) {
+    stateExplorer = StateExplorer(state)
+  }
 
   let feedTwenty = null
   if (state.credit === 0 && state.mode === 'deal') feedTwenty = FeedTwentyModal()

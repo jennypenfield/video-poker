@@ -6,7 +6,7 @@ import {deepCopy} from './util'
 const dummyHand = [
   {card: '2c', isHeld: false, drawCard: '4d'},
   {card: 'As', isHeld: true, drawCard: '5s'},
-  {card: '3s', isHeld: false, drawCard: 'Ad'},
+  {card: '3s', isHeld: false, drawCard: '7d'},
   {card: 'Jd', isHeld: true, drawCard: 'Ac'},
   {card: '7s', isHeld: false, drawCard: 'Ks'}
 ]
@@ -20,7 +20,7 @@ const INITIAL_STATE = {
   isGameOverModalShowing: true,
   isHelpModalShowing: false,
   win: 0,
-  stateExplorerShowing: (document.location.search.indexOf('stateexplorer') !== -1)
+  stateExplorerShowing: (document.location.search.indexOf('stateexplorer') === -1)
 }
 
 window.appState = deepCopy(INITIAL_STATE)
@@ -42,11 +42,11 @@ getSavedState()
 window.requestAnimationFrame(renderNow)
 
 function saveState () {
-  window.localStorage.state = JSON.stringify(window.appState)
+  window.sessionStorage.state = JSON.stringify(window.appState)
 }
 
 function getSavedState () {
-  let local = window.localStorage.state
+  let local = window.sessionStorage.state
   window.appState = safelyParseJSON(local)
 }
 
