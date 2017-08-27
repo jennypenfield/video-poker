@@ -43,6 +43,7 @@ function MaxBetBtn () {
 
 function clickDealBtn () {
   if (window.appState.credit <= 0) return
+  if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
   window.appState.credit -= window.appState.bet
   window.appState.mode = 'draw'
   window.appState.handResult = {winningHand: '', rank: 0}
@@ -60,7 +61,7 @@ function DealBtn () {
 
 function clickDrawBtn () {
   window.appState.mode = 'deal'
-  if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
+  window.appState.handResult = {winningHand: '', rank: 0}
   checkWin(window.appState.hand, window.appState.mode)
   setTimeout(function delayOnHandResult () {
     window.appState.isGameOverModalShowing = true

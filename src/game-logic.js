@@ -38,8 +38,7 @@ function checkWin (hand, mode) {
   for (let i = 0; i < 5; i++) {
     if (mode === 'draw') {
       checkHand.push(hand[i].card)
-    }
-    if (mode === 'deal') {
+    } else {
       if (hand[i].isHeld) {
         checkHand.push(hand[i].card)
       } else {
