@@ -54,7 +54,11 @@ function checkWin (hand, mode) {
     return
   }
   if (poker.hasStraightFlush(strHand)) {
-    window.appState.handResult = {winningHand: ' Straight Flush', rank: 2}
+    window.appState.handResult = {winningHand: 'Straight Flush', rank: 2}
+    return
+  }
+  if (hasStraightFlushFromAce(checkHand)) {
+    window.appState.handResult = {winningHand: 'Straight Flush', rank: 2}
     return
   }
   if (poker.hasFourOfAKind(strHand)) {
@@ -85,7 +89,35 @@ function checkWin (hand, mode) {
     window.appState.handResult = {winningHand: 'Jacks or Better', rank: 9}
     return
   }
+  if (hasStraightFromAce(checkHand)) { // library does not register a straight with A low
+    window.appState.handResult = {winningHand: 'Straight', rank: 6}
+    return
+  }
   return
+}
+
+function hasStraightFromAce (hand) {
+  let cardArray = hand.map(function (card) { return card.substring(0, 1) })
+  let straightArray = cardArray.sort()
+  return (straightArray[0] === '2' && straightArray[1] === '3' &&
+    straightArray[2] === '4' && straightArray[3] === '5' &&
+    straightArray[4] === 'A')
+}
+
+function hasStraightFlushFromAce (hand) {
+  let cardArray = hand.map(function (card) { return card.substring(0, 1) })
+  let cardSuitsArray = hand.map(function (card) { return card.substring(1) })
+  let straightArray = cardArray.sort()
+  return (straightArray[0] === '2' && straightArray[1] === '3' &&
+    straightArray[2] === '4' && straightArray[3] === '5' &&
+    straightArray[4] === 'A' && allSuitsTheSame(cardSuitsArray))
+}
+
+function allSuitsTheSame (cardSuitsArray) {
+  for (let i = 0; i < 5; i++) {
+    if (cardSuitsArray[i] !== cardSuitsArray[0]) return false
+  }
+  return true
 }
 
 function hasPair (hand) {
