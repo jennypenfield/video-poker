@@ -17,6 +17,7 @@ const INITIAL_STATE = {
   mode: 'deal',
   hand: deepCopy(dummyHand),
   handResult: {winningHand: '', rank: 0},
+  isDrawButtonActive: true,
   isGameOverModalShowing: true,
   isHelpModalShowing: false,
   win: 0,

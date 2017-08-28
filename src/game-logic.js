@@ -25,6 +25,7 @@ function newHand () {
   for (let i = 0; i < 5; i++) {
     hand.push({card: deck[i], isHeld: false, drawCard: deck[i + 10]})
   }
+
   return hand
 }
 
@@ -73,7 +74,8 @@ function checkWin (hand, mode) {
     window.appState.handResult = {winningHand: 'Flush', rank: 5}
     return
   }
-  if (poker.hasStraight(strHand)) {
+  if (poker.hasStraight(strHand) && !poker.hasPair(strHand)) { // there appears to be a glitch
+    // where poker-hands lib registers a straight with 2,3,4 + any pair
     window.appState.handResult = {winningHand: 'Straight', rank: 6}
     return
   }
@@ -85,7 +87,8 @@ function checkWin (hand, mode) {
     window.appState.handResult = {winningHand: 'Two Pair', rank: 8}
     return
   }
-  if (hasPair(checkHand)) { // library can only check for any pair--need to check for Js or better.
+  if (hasJacksOrBetter(checkHand)) { // library can only check for any pair--need
+    // to check for Js or better.
     window.appState.handResult = {winningHand: 'Jacks or Better', rank: 9}
     return
   }
@@ -120,7 +123,7 @@ function allSuitsTheSame (cardSuitsArray) {
   return true
 }
 
-function hasPair (hand) {
+function hasJacksOrBetter (hand) {
   let cardArray = hand.map(function (card) { return card.substring(0, 1) })
   // push J, Q, K, A into new array
   let highCardsArray = []

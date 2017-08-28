@@ -98,6 +98,10 @@ col {
   text-transform: uppercase;
 }
 
+.game-button.inactive {
+  color: white;
+}
+
 .help-modal {
   background-color: black;
   border: 2px yellow solid;

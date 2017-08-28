@@ -42,6 +42,7 @@ function MaxBetBtn () {
 }
 
 function clickDealBtn () {
+  window.appState.isDrawButtonActive = false
   if (window.appState.credit <= 0) return
   if (window.appState.bet > window.appState.credit) window.appState.bet = window.appState.credit
   window.appState.credit -= window.appState.bet
@@ -51,6 +52,9 @@ function clickDealBtn () {
   window.appState.isGameOverModalShowing = false
   window.appState.hand = newHand()
   checkWin(window.appState.hand, window.appState.mode)
+  setTimeout(function delayShowDrawBtn () {
+    window.appState.isDrawButtonActive = true
+  }, 1200)
 }
 
 function DealBtn () {
@@ -68,6 +72,18 @@ function clickDrawBtn () {
   }, 1000)
   if (window.appState.handResult.rank !== 0) {
     updateCredit(window.appState.handResult.rank, window.appState.bet)
+  }
+}
+
+function DrawBtn () {
+  if (window.appState.isDrawButtonActive) {
+    return (
+      <button className='game-button' onClick={clickDrawBtn}>Draw</button>
+    )
+  } else {
+    return (
+      <button className='game-button inactive'>Draw</button>
+    )
   }
 }
 
@@ -89,12 +105,6 @@ function updateCredit (rank, bet) {
   let winAmt = WIN_CREDITS[rankIdx][betIdx]
   window.appState.win = winAmt
   window.appState.credit += winAmt
-}
-
-function DrawBtn () {
-  return (
-    <button className='game-button' onClick={clickDrawBtn}>Draw</button>
-  )
 }
 
 function ActionBar (mode) {
